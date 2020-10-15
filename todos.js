@@ -15,7 +15,18 @@ function renderToDos() {
         var toDoElement = document.createElement('li');
         var toDoText = document.createTextNode(toDo);
 
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', '#');
+
+        var pos = toDos.indexOf(toDo);
+        linkElement.setAttribute('onclick', 'deleteToDo(' + pos + ')');
+
+        var linkText = document.createTextNode('Excluir');
+
+        linkElement.appendChild(linkText);
+
         toDoElement.appendChild(toDoText);
+        toDoElement.appendChild(linkElement);
         listElement.appendChild(toDoElement);
     }
 }
@@ -30,4 +41,9 @@ function addToDo() {
     renderToDos();
 }
 
-buttonElement.onclick= addToDo;
+function deleteToDo(pos) {
+    toDos.splice(pos, 1);
+    renderToDos();
+}
+
+buttonElement.onclick = addToDo;
