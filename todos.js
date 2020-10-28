@@ -17,7 +17,7 @@ function renderToDos() {
         var pos = toDos.indexOf(toDo);
         linkElement.setAttribute('onclick', 'deleteToDo(' + pos + ')');
 
-        var linkText = document.createTextNode('Excluir');
+        var linkText = document.createTextNode('EXCLUIR');
 
         linkElement.appendChild(linkText);
 
